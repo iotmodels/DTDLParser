@@ -16,14 +16,12 @@ const el = document.getElementById('dtdl-text')
 
 parserVersionDiv.innerText = assemblyExports.DtdlParserJSInterop.ModelParserJS.ParserVersion()
 
-const validate = async () => {
-    // @ts-check
+const validate = () => {
     out.innerHTML = '.. parsing ..'
     out.style.color = 'grey'
-    /** @type import("./DtdlOm").DtdlObjectModel */
     let parseResult = ''
     try {
-        parseResult = JSON.parse(await assemblyExports.DtdlParserJSInterop.ModelParserJS.ParseAsync(el.value))
+        parseResult = JSON.parse(assemblyExports.DtdlParserJSInterop.ModelParserJS.Parse(el.value))
         render(parseResult)
         out.innerHTML = JSON.stringify(parseResult, null, 2)
         out.style.color = 'black'
@@ -35,5 +33,5 @@ const validate = async () => {
     }
 }
 el.onchange = validate
-await validate()
+validate()
 
