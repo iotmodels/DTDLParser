@@ -12,10 +12,6 @@
 <body>
 <h1>DTDL .NET parser in the browser</h1>
 
-<div>
-Resolve From: <input type="text" id="dmrBasePath" size="67" value="https://devicemodels.azure.com" />
-</div>
-
 <textarea id="dtdl-text" cols="80" rows="30" spellcheck="false">
 {
     "@context": ["dtmi:dtdl:context;3", 
@@ -33,6 +29,7 @@ Resolve From: <input type="text" id="dmrBasePath" size="67" value="https://devic
     ]
 }
 </textarea>
+<div id="parserVersion">Version..</div>
 <pre id="out">
     .. loading parser ..
 </pre>
