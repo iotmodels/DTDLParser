@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>DTDL Parser in the Browser</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="modulepreload" href="./main.js" />
+  <link rel="modulepreload" href="./dotnet.js" />
+</head>
+
+<body>
+<h1>DTDL .NET parser in the browser</h1>
+
+<div>
+Resolve From: <input type="text" id="dmrBasePath" size="67" value="https://devicemodels.azure.com" />
+</div>
+
+<textarea id="dtdl-text" cols="80" rows="30" spellcheck="false">
+{
+    "@context": ["dtmi:dtdl:context;3", 
+                 "dtmi:dtdl:extension:quantitativeTypes;1"],
+    "@id": "dtmi:com:example;1",
+    "@type": "Interface",
+    "extends" : "dtmi:com:example:DeviceTemplate;1",
+    "contents": [
+        {
+            "@type": ["Property", "Temperature"],
+            "name": "tempInKelvin",
+            "schema": "double",
+            "unit" : "kelvin"
+        }
+    ]
+}
+</textarea>
+<pre id="out">
+    .. loading parser ..
+</pre>
+<script type='module' src="./main.js"></script>
+</body>
+</html>
